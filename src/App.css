@@ -27,6 +27,13 @@
 .App-link {
   color: #61dafb;
 }
+.horizontalLayout{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  gap: 10px;
+
+}
 
 @keyframes App-logo-spin {
   from {
@@ -35,4 +42,7 @@
   to {
     transform: rotate(360deg);
   }
+
+
+
 }
