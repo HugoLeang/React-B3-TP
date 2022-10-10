@@ -1,0 +1,14 @@
+.cardDisplayerContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cardDataContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.cardImage{
+    max-width: 100%;
+}

@@ -1,6 +1,6 @@
 import CardDisplayer from "../CardDisplayerComponent/CardDisplayer";
 import NavBar from "../NavbarComponent/NavBar";
-const Dashboard = () => {
+const DashboardView = () => {
   return (
     <>
       <NavBar />
@@ -9,4 +9,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default DashboardView;
