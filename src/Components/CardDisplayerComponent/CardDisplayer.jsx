@@ -2,13 +2,18 @@ import "../CardDisplayerComponent/CardDisplayer.css";
 import { Card, Skeleton } from "@mui/material";
 import { getRandomCard } from "../../Services/MTGService";
 import { useEffect, useState } from "react";
-const CardDisplayer = () => {
+const CardDisplayer = (props) => {
   const [cardState, SetCardState] = useState({});
   const [isLoading, SetIsLoading] = useState(true);
   useEffect(() => {
-    getRandomCard(handleData);
-    SetIsLoading(true);
-  }, []);
+    if (props.cardData === undefined) {
+      getRandomCard(handleData);
+      SetIsLoading(true);
+    } else {
+      SetIsLoading(false);
+      SetCardState(props.cardData);
+    }
+  }, [props.cardData]);
 
   const handleData = (result) => {
     SetCardState(result);
@@ -18,7 +23,6 @@ const CardDisplayer = () => {
   return (
     <>
       <div className="cardDisplayerContainer">
-        <h1>CARD OF THE DAY</h1>
         <Card className="cardDataContainer">
           {!isLoading ? (
             <>
