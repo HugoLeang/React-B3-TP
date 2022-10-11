@@ -2,7 +2,6 @@ import "../CardDisplayerComponent/CardDisplayer.css";
 import { Card, Skeleton } from "@mui/material";
 import { getRandomCard } from "../../Services/MTGService";
 import { useEffect, useState } from "react";
-import { Stack } from "@mui/system";
 const CardDisplayer = () => {
   const [cardState, SetCardState] = useState({});
   const [isLoading, SetIsLoading] = useState(true);
