@@ -1,10 +1,10 @@
+import React from "react";
 import "./App.css";
-import ConnectionView from "./Views/ConnectionView";
-
+import DashboardView from "./Components/DashboardComponent/DashboardView";
 function App() {
   return (
     <div className="App">
-      <ConnectionView />
+      <DashboardView />
     </div>
   );
 }

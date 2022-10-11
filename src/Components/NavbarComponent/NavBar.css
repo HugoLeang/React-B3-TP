@@ -1,0 +1,27 @@
+.navBar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    text-align: left;
+    gap: 10px;
+    background-color:rgb(34, 34, 34);
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin: 0;
+    padding: 0;
+}
+.navBarItem{
+    text-align: center;
+    margin: 1%;
+    margin-left: 3.5%;
+    margin-top: 1.5%;
+    padding: 20px;
+    font-weight: bold; 
+}
+.navBarLogo{
+    max-width: 5%;
+    margin: 1%;
+    margin-left: 5%;
+    
+}

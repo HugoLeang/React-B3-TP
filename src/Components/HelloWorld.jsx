@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../App.css";
 const HelloWorld = (props) => {
+  useEffect(() => {
+    console.log("Hello World");
+  }, []);
   const [counter, setCounter] = useState(0);
   const { title } = props;
   const incrementCounter = () => {
