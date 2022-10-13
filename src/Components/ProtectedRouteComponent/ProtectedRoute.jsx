@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Redirect } from "react-router";
+import { Navigate } from "react-router";
 import { UserContext } from "../../Stores/UserStore";
 
 const ProtectedRoute = ({ children, redirectPath }) => {
@@ -7,6 +7,6 @@ const ProtectedRoute = ({ children, redirectPath }) => {
   if (userContext.state) {
     return children;
   }
-  return <Redirect to={redirectPath} />;
+  return <Navigate to={redirectPath} />;
 };
 export default ProtectedRoute;
