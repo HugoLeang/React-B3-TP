@@ -53,7 +53,6 @@ const Signup = (props) => {
   };
 
   useEffect(() => {
-    console.log(Object.keys(userCookie).length);
     if (Object.keys(userCookie).length > 0) {
       navigate("/dashboard");
     }

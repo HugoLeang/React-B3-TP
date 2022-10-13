@@ -7,6 +7,7 @@ import { Routes } from "react-router";
 import ProtectedRoute from "./Components/ProtectedRouteComponent/ProtectedRoute";
 import UserStore from "./Stores/UserStore";
 import { CookiesProvider } from "react-cookie";
+import NavBar from "./Components/NavbarComponent/NavBar";
 function App() {
   return (
     <CookiesProvider>
@@ -19,6 +20,7 @@ function App() {
                 path="/dashboard"
                 element={
                   <ProtectedRoute UserStore={UserStore} redirectPath={"/"}>
+                    <NavBar />
                     <DashboardView />
                   </ProtectedRoute>
                 }
