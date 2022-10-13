@@ -1,6 +1,6 @@
 import "../CardDisplayerComponent/CardDisplayer.css";
 import { Card, Skeleton } from "@mui/material";
-import { getRandomCard } from "../../Services/MTGService";
+import { getRandomCard } from "../../Services/ScryfallService";
 import { useEffect, useState } from "react";
 const CardDisplayer = (props) => {
   const [cardState, SetCardState] = useState({});
@@ -16,6 +16,7 @@ const CardDisplayer = (props) => {
   }, [props.cardData]);
 
   const handleData = (result) => {
+    console.log(result);
     SetCardState(result);
     SetIsLoading(false);
   };
@@ -28,14 +29,14 @@ const CardDisplayer = (props) => {
             <>
               <img
                 className="cardImage"
-                src={cardState.card.imageUrl}
-                alt="Card of the day"
+                src={cardState.image_uris.normal}
+                alt="Card art"
               />
               <div className="cardTextContainer">
-                <h2>{cardState.card.name}</h2>
-                <h3>{cardState.card.type}</h3>
+                <h2>{cardState.name}</h2>
+                <h3>{cardState.type_line}</h3>
                 <hr className="solid" />
-                <p className="cardDescription">{cardState.card.text}</p>
+                <p className="cardDescription">{cardState.oracle_text}</p>
               </div>
             </>
           ) : (
