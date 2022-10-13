@@ -12,9 +12,6 @@ const NavBar = () => {
   const dashboardHandler = () => {
     navigate("/dashboard");
   };
-  const researchHandler = () => {
-    navigate("/research");
-  };
   return (
     <AppBar>
       <div className="navBar">
@@ -29,13 +26,6 @@ const NavBar = () => {
           onClick={dashboardHandler}
         >
           Dashboard
-        </Button>
-        <Button
-          className="navBarItem"
-          variant="contained"
-          onClick={researchHandler}
-        >
-          Research
         </Button>
         <Button
           className="navBarItemSignout"

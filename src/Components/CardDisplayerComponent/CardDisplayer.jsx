@@ -16,7 +16,6 @@ const CardDisplayer = (props) => {
   }, [props.cardData]);
 
   const handleData = (result) => {
-    console.log(result);
     SetCardState(result);
     SetIsLoading(false);
   };

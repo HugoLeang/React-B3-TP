@@ -1,4 +1,3 @@
-import { Paper } from "@mui/material";
 import CardDisplayer from "../Components/CardDisplayerComponent/CardDisplayer";
 import SetTableDisplayer from "../Components/SetsTableDisplayerComponent/SetTableDisplayer";
 import "../App.css";
