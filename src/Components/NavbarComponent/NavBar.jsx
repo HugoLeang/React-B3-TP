@@ -21,7 +21,7 @@ const NavBar = () => {
         <img
           className="navBarLogo"
           src="https://www.wellesleyfreelibrary.org/wp-content/uploads/2019/11/magic.png"
-          alt="Card Art"
+          alt="App art"
         />
         <Button
           className="navBarItem"
