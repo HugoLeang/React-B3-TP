@@ -11,12 +11,6 @@ const NavBar = () => {
       <Button className="navBarItem" variant="contained">
         Dashboard
       </Button>
-      <Button className="navBarItem" variant="contained">
-        Research
-      </Button>
-      <Button className="navBarItem" variant="contained">
-        Decks
-      </Button>
     </div>
   );
 };

@@ -7,9 +7,14 @@ export const signUpUser = (
   successCallback,
   failCallback
 ) => {
-  if (localStorage.getItem(email) === password) {
-    successCallback();
+  const localStorageData = localStorage.getItem(email);
+  if (localStorageData != null) {
+    if (localStorage.getItem(email) === password) {
+      successCallback();
+    } else if (localStorage.getItem(email) !== password) {
+      failCallback({ fail: true, reason: "Incorrect password" });
+    }
   } else {
-    failCallback();
+    failCallback({ fail: true, reason: "User not found" });
   }
 };
