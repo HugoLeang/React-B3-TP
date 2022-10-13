@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Application React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Signup - Signin
 
-## Available Scripts
+L'application possède un système d'inscription et de connection qui permet de vérifier si l'utilisateur existe dans le local storage.
 
-In the project directory, you can run:
+### Utilisation de cookie pour garder une trace la connection
 
-### `npm start`
+Au moment de se connecter l'application sauvegarde un cookie sur la navigateur avec comme donnée l'email.
+Quand l'utilisateur se retrouvera sur le chemin "/" et qu'il possède un cookie qui atteste qu'il s'est connecté à l'app. L'utilisateur est redirigé vers le dashboard.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Routage
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+L'application possède le package de routage `react-router-dom` qui permet de naviguer à travers les pages de l'application.
 
-### `npm test`
+### Protection des routes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Le dashboard de l'application est protégé. Pour y accéder l'utilisateur doit se connecter avec un accès existant sur le local storage.
+Si l'utilisateur essaye de forcer la connection via l'URL du navigateur, la page vérifira que le cookie de connexion est bien présent. Sinon il est redirigé vers la page de login.
 
-### `npm run build`
+## Dashboard
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Le dashboard est la page que peut accèder l'utilisateur une fois connecté.
+Au sein de cette page deux composants présents et font des appels à des API extérieurs pour pouvoir présenter des informations à l'utilisateur.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Structuration VIEW - COMPONENT - SERVICE
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Durant le développement, l'application est structuré en trois partie:
 
-### `npm run eject`
+- View: Conteneurs de composant qui permet d'injecter n'importe quel composants.
+- Component: Morceau de code réutilisable et indépendant injectable sur n'importe quelle View.
+- Service: Code qui permet d'intéragir avec les API et contient du code réutilisable qui à uniquement pour but d'être fonctionnel.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Composant Card Displayer
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Le Card displayer est un composant qui permet d'afficher une carte avec:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Illustration
+- Nom
+- Type
+- Description
+  On peut renseigner des données directement si on veut afficher une carte spécifique ou bien ne passer aucun props.
+  Dans le cas où aucun props est renseigné, le composant affiche une carte au hasard.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Ce composant fait appel à un API externe Scryfall pour obtenir une carte aléatoire.
 
-## Learn More
+### Composant Set Table Displayer
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Ce composant à pour but d'afficher les nouvelles extension sorties datant de moins d'un an et à venir.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Elle fait appel à une API externe pour récupérer toutes les extensions sorties et les tri en fonction de leurs dates de sorties.
+Une fois cette opération faite: Elle les affiches sous un format de tableau.
 
-### Code Splitting
+## Création d'un hook custom
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Pour facilier la création d'un formulaire et de réutiliser les fonctionnalités déjà écrite pour gérer les champs d'un formulaire, l'application possède un hook customisé pour gérer la validation grâce aux expressions régulières.
