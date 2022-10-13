@@ -8,9 +8,10 @@
     background-color:rgb(34, 34, 34);
     padding-top: 5%;
     padding-bottom: 5%;
-    margin: 0;
+    padding-bottom: 3%;
     padding: 0;
 }
+
 .navBarItem{
     text-align: center;
     margin: 1%;
